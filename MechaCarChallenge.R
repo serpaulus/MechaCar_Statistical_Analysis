@@ -18,9 +18,14 @@ lot_summary <- Suspension_Coil %>% group_by(Manufacturing_Lot )%>%  summarize(Me
 
 
 #Deliverable 3
+# all Lots
+t.test(Suspension_Coil$PSI, mu=mean(Suspension_Coil$PSI))
 
-t.test(Suspension_Coil$PSI,mu=1500)
+# lot 1
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == "Lot1"),mu=mean(Suspension_Coil$PSI))
 
-lot_1 <- subset(Suspension_Coil, Manufacturing_Lot=="Lot1")
-lot_2 <- subset(Suspension_Coil, Manufacturing_Lot=="Lot2")
-lot_3 <- subset(Suspension_Coil, Manufacturing_Lot=="Lot3")
+# lot 2
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == "Lot2"),mu=mean(Suspension_Coil$PSI))
+
+# lot 3 
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == "Lot3"),mu=mean(Suspension_Coil$PSI))
